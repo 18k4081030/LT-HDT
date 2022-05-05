@@ -44,7 +44,7 @@ public class Manager extends Person {
     @Override
     public String toString() {
         String ketqua = super.toString();
-        ketqua +=  "Manager{" + "shops=" + Arrays.toString(shops) + ", income=" + income + '}';
+        ketqua +=  "Manager{" + "shops=" + Arrays.deepToString(shops) + ", income=" + income + '}';
         return ketqua;
     }
     

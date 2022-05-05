@@ -12,6 +12,7 @@ import java.util.Random;
  * @author Admin
  */
 public class XuatDuLieuFrame extends javax.swing.JInternalFrame {
+    int[] a;
 
     /**
      * Creates new form XuatDuLieuFrame
@@ -31,6 +32,7 @@ public class XuatDuLieuFrame extends javax.swing.JInternalFrame {
 
         pnPanel = new javax.swing.JPanel();
         bntve = new javax.swing.JButton();
+        bntsapxep = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -56,6 +58,13 @@ public class XuatDuLieuFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        bntsapxep.setText("Sắp xếp mảng 1 chiều ");
+        bntsapxep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntsapxepActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,19 +73,22 @@ public class XuatDuLieuFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntve))
+                    .addComponent(bntve)
+                    .addComponent(bntsapxep))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bntve, pnPanel});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bntsapxep, bntve, pnPanel});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bntve)
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bntsapxep)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,8 +114,34 @@ public class XuatDuLieuFrame extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_bntveActionPerformed
 
+    private void bntsapxepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntsapxepActionPerformed
+        // TODO add your handling code here:
+        Graphics2D gr = (Graphics2D) pnPanel.getGraphics();
+        int maxX = pnPanel.getWidth();
+        int maxY = pnPanel.getHeight();
+        int step = 5;
+        int n = maxX/step;
+        
+        int beginX = 0, beginX2 = 0;
+         for(int i = 0; i < n - 1; i++){
+          for(int j = i + 1; j < n;j++){
+            if(a[i] > a[j]){
+                int temp = a[i];
+                gr.clearRect(beginX, maxY - a[i], step, a[i]);
+                a[i] = a[j];
+                gr.drawRect(beginX, maxY - a[i], step, a[i]);
+                beginX2 = j*step;
+                gr.clearRect(beginX2, maxY - a[j], step, a[j]);
+                a[j] = temp;
+                gr.drawRect(beginX2, maxY - a[j], step, a[j]);
+            }
+        }
+         beginX += step;  
+    }//GEN-LAST:event_bntsapxepActionPerformed
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntsapxep;
     private javax.swing.JButton bntve;
     private javax.swing.JPanel pnPanel;
     // End of variables declaration//GEN-END:variables

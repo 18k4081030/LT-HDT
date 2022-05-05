@@ -54,15 +54,57 @@ public class testArray {
          
     }
     System.out.println(Arrays.toString(c));
+    // sap xep mang theo chieu tang dan
+    Arrays.sort(c);
+    System.out.println("Mang sau khi sap xep tang dan la ");
+    System.out.println(Arrays.toString(c));
     
-        
+    System.out.print("Nhap gia tri can tim kiem x = ");
+    input = sc.nextLine();
+    int x = Integer.parseInt(input);
     
+    // Tim kiem nhi phan
+    int index = Arrays.binarySearch(c, x);
+    if(index < 0){
+        System.out.println("Khong tim thay");
+    }else{
+        System.out.println("Tim thay tai vi tri thu " + index);
+    }
+//    int x = Integer.parseInt(input);
+//    
+//    boolean flag = false;
+//    
+//    for (int i=0; i < c.length; i++){
+//        if(c[i]==x){
+//            System.out.println("Gia tri can tim kiem co trong mang tai vi tri " + i);
+//            flag = true;
+//            break;
+//        }
+//    }
+//    if(!flag){
+//        System.out.println("Gia tri cn tim kiem khong co trong mang ");
+//    }
+    
+//    int temp;
+//    for(int i =0; i < n-1; i++)
+//        for(int j = i+1; j < n;j++){
+//           if(c[i] > c[j]) {
+//               temp =c[i];
+//               c[i] = c[j];
+//               c[j] = temp;
+//           }
+//        }
+//    System.out.println(Arrays.toString(c));    
             
-     
-
+        Arrays.sort(c);
+        System.out.println(Arrays.toString(c));
         
-                
-                
+          
+    
+    
+    
+    
+        
     }
     
 }

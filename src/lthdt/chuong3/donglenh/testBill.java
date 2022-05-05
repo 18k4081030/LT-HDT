@@ -1,0 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package lthdt.chuong3.donglenh;
+
+import lthdt.chuong3.coffeelogic.Bill;
+import lthdt.chuong3.coffeelogic.Product;
+
+/**
+ *
+ * @author Admin
+ */
+public class testBill {
+    public static void main(String[] args) throws CloneNotSupportedException{
+            Bill a = new Bill(12, new Product[]{
+                new Product ("Shampoo", 12),
+                new Product("Clodeup", 21)});
+            
+            
+            System.out.println("a = " + a);
+            
+            Bill temp = (Bill) a.clone();
+            temp.setBillID(15);
+            
+            System.out.println("a = " + a);
+            System.out.println("temp = "+ temp);
+            }
+        }
+    
+        
+        
+                
+            
+
